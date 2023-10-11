@@ -1,0 +1,48 @@
+<template>
+    
+    <lightning-card title="従業員スキル検索Form" icon-name="custom:custom14" class="slds-m-around_medium">
+        <lightning-layout multiple-rows="true">
+        <lightning-layout-item flexibility="auto" size="4" key={field}>
+        <lightning-input type="text" placeholder="Enter Search User" onchange={handleSearch}></lightning-input>
+        
+        <lightning-checkbox-group name="BA"
+        label="BA" 
+        options={optionsBA} 
+        value={value}
+        onchange={handleChange}
+        class="checkboxClass"
+        ></lightning-checkbox-group>
+        <lightning-checkbox-group name="Developer"
+        label="Developer" 
+        options={optionsDeveloper} 
+        value={value} 
+        onchange={handleChange}></lightning-checkbox-group>  
+        <lightning-checkbox-group name="Salesforce"
+        label="Salesforce" 
+        options={optionsSalesforce} 
+        value={value} 
+        onchange={handleChange}></lightning-checkbox-group>
+        </lightning-layout-item>
+        </lightning-layout>
+<lightning-datatable key-field="id" 
+   data={displayResult}
+   columns={columns}></lightning-datatable>
+        
+
+   
+
+
+
+<!-- <lightning-checkbox-group name="Developer"
+    label="Developer" 
+    options={optionsDeveloper} 
+    value={value} 
+    onchange={handleChange}></lightning-checkbox-group>
+
+<lightning-checkbox-group name="Salesforce"
+    label="Salesforceライセンス" 
+    options={optionsSalesforce} 
+    value={value} 
+    onchange={handleChange}></lightning-checkbox-group>  -->
+</lightning-card>
+</template>
