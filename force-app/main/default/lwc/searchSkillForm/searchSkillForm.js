@@ -1,10 +1,20 @@
-import { LightningElement } from 'lwc';
-import { publish, subscribe, MessageContext } from 'lightning/messageService';
-import channel from '@salesforce/messageChanel/searchResult.messgeChannel__c';
+import { LightningElement, wire } from 'lwc'
+import { publish, MessageContext } from 'lightning/messageService';
+import channel from '@salesforce/messageChannel/SearchResult__c';
+import getUserSkill from '@salesforce/apex/SkillController.getUserSkill';
 
 export default class SearchSkillForm extends LightningElement {
+    @wire(getUserSkill)
+    skill
+
+    @wire(MessageContext)
+    messageContext;
+
     handleClick(event){
         event.console.log();
+        const payload = {};
+
+        publish(this.MessageContext,channel, payload);
     }
 
 }

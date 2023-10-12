@@ -1,5 +1,5 @@
 public with sharing class SkillContorller {
-    public List<Skill__c> getSkill(String userName){
+    public List<Skill__c> getUserSkill(String userName){
         List<Skill__c> skill;
         try{
            String nameForQuery = '%' + userName + '%';
